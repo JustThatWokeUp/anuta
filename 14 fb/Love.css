@@ -1,0 +1,220 @@
+body {
+    background-color: rgb(254, 227, 255);
+    width: 350px;
+    height: 798px;
+    margin:0;
+
+}
+
+@media only screen 
+  and (device-width: 390px) 
+  and (device-height: 844px) 
+  and (-webkit-device-pixel-ratio: 3) {
+    /* Стили специально для iPhone 13 */
+    .hero-section {
+       height: 100vh; /* Растянуть на весь экран */
+    }
+}
+
+.catbtn {
+    background: transparent;
+    border:transparent;
+    position: absolute;
+    padding: 2px 2px;
+    cursor: pointer;
+    z-index: 2;
+    left: -160px; /* чуть за экраном */
+    top: 50%;
+    will-change: transform;
+    animation: manyJumps 2.5s ease-in-out forwards;
+}
+
+.text-box {
+    position: absolute;
+    top: 290px;
+    left: 200px;
+    transform: translateX(-50%);
+    padding: 10px 15px;
+    background: white;
+    border-radius:15px;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    color: black;
+    opacity: 0;
+    pointer-events: none;
+    white-space: pre;
+}
+
+@keyframes manyJumps {
+
+    /* старт — центр левой стороны */
+   0% {
+        transform: translate(-160px, -70px);
+    }
+
+    /* первый маленький прыжок */
+    15% {
+        transform: translate(-80px, -60px);
+    }
+
+    25% {
+        transform: translate(-40px, -70px);
+    }
+
+    /* второй прыжок */
+    35% {
+        transform: translate(10px, -60px);
+    }
+
+    45% {
+        transform: translate(70px, -70px);
+    }
+
+    /* третий прыжок */
+    55% {
+        transform: translate(120px, -60px);
+    }
+
+    65% {
+        transform: translate(180px, -70px);
+    }
+
+    /* четвертый прыжок */
+    75% {
+        transform: translate(200px, -60px);
+    }
+
+    85% {
+        transform: translate(240px, -70px);
+    }
+
+    92% {
+        transform: translate(280px, -60px);
+    }
+
+    /* финальная позиция */
+    100% {
+        transform: translate(290px, -70px);
+    }
+}
+
+@keyframes moveDown {
+    to {
+        transform: translateY(400px); /* котик уходит вниз */
+        opacity: 0;
+    }
+}
+
+.uiai {
+    border: transparent;
+    background: transparent;
+    position: absolute;
+    top: 620px;
+    left: -10px;
+    cursor: pointer;
+}
+
+#catImg {
+    transform-box: fill-box;
+    transform-origin: center;
+    display: block;
+}
+
+.spin {
+    animation: rotate 0.4s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.cath1{
+    border: transparent;
+    background: transparent;
+    position: absolute;
+    top:230px;
+    left:130px;
+    transform: scalex(-1);
+}
+
+.cath2{
+    border: transparent;
+    background: transparent;
+    transform: scaleX(-1);
+    position: absolute;
+    top:454px;
+    left:-5px;
+    cursor: pointer;
+}
+
+@keyframes moveCat1 {
+    from {
+        left: 300px;
+        opacity: 0;
+    }
+    to {
+        left: 300px;
+        opacity: 1;
+    }
+}
+
+.show1 {
+    animation: moveCat1 1.5s ease forwards;
+    top: 230px;
+}
+
+@keyframes moveCat2 {
+    from {
+        left: 100%;
+        opacity: 0;
+    }
+    to {
+        left: 130px;
+        opacity: 1;
+    }
+}
+
+.show2 {
+    animation: moveCat2 1.5s ease forwards;
+    top: 454px;
+}
+
+.cath1, .cath2 {
+    position: absolute;
+    opacity: 0;
+    transition: all 1.2s cubic-bezier(.25,.8,.25,1);
+}
+
+.fire-particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    pointer-events: none;
+
+    background: radial-gradient(circle, #ff5a5a 0%, #ff0000 45%, transparent 70%);
+
+    box-shadow:
+        0 0 6px #ff0000,
+        0 0 14px #ff0000,
+        0 0 24px #ff4d4d;
+
+    opacity: 0;
+}
+
+@keyframes fireAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.2);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
